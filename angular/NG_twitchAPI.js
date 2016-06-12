@@ -291,7 +291,7 @@ function JSONP(directory, DATA, callback) {
   });
 }
 $(document).ready(function () {
-  getTopGames(25);
+//  getTopGames(25);
 //  getTopGames(5);
 //    searchGames("star");
   //  searchGames("doom");

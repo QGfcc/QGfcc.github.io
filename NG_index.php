@@ -30,29 +30,37 @@ and open the template in the editor.
 
   </head>
   <body>
-    <div class="container-fluid">
+    <div class="container-fluid"  ng-app="twitchApp" ng-controller="mainCtrl">
       <div class="text-center headerContainer">
         <h1 class="text-center"> Twitch.tv API Viewer</h1>
       </div>
-      <!--<div class="container">-->
-      <div id="displayer" ng-app="twitchApp" ng-controller="firstCtrl">
-        <div class="row">
-          <!--<div class="gameBrowserDiv text-center col-xs-12 col-sm-6 col-md-3">-->
-          <div class="gameBrowserDiv text-center col-xs-4 col-sm-3 col-md-2 " ng-click="getGamesStreams(gameName, 25)">
-            <!--<a href="' + 'https://api.twitch.tv/kraken/streams?game=' + gameName + '">-->
-              <!--<img src="box.large" class="img-responsive" >-->
-              <!--<img src="' + box.medium + '" class="img-responsive" >-->
-            <img src="' + box.medium + '" class="" >
-            <!--<img src="' + logo.large + '">-->
-            <h4 class="text-center gameTitle">' + gameName + '</h4>
-            <!--<h6 class="text-center viewerNumber">' + viewers + '</h6>-->
-            <span class="badge">' + viewers + ' Viewers' + '</span>
-            <!--</a>-->
+      <!--<ul class="nav nav-pills text-center">-->
+      <nav class="text-center">
+        <ul class="pagination">
+          <li class="" role="presentation"><a href="" ng-click="goToTab(0)">Top Games</a></li>
+          <li class="" role="presentation"><a href="" ng-click="goToTab(1)">Game Search</a></li>
+          <li class="" role="presentation"><a href="" ng-click="goToTab(2)">Streams</a></li>
+        </ul>
+      </nav>
+      <div id="displayer">
+        <div class="row" ng-controller="topGameCtrl" ng-show="curTab == 0">
+          <div class="gameBrowserDiv text-center col-xs-4 col-sm-3 col-md-2 " ng-click="getGamesStreams(gameName, 25)"
+               ng-repeat="GAME in data.top">
+            <img ng-src="{{GAME.game.box.medium}}" class="" >
+            <h4 class="text-center gameTitle">{{GAME.game.name}}</h4>
+            <span class="badge">{{GAME.viewers| number}} Viewers</span>
+          </div>
+        </div>
+        <div class="row" ng-controller="searchGameCtrl" ng-show="curTab == 1">
+          <div class="gameBrowserDiv text-center col-xs-4 col-sm-3 col-md-2 " ng-click="getGamesStreams(gameName, 25)"
+               ng-repeat="GAME in data.games">
+            <img ng-src="{{GAME.box.medium}}" class="" >
+            <h4 class="text-center gameTitle">{{GAME.name}}</h4>
+            <span class="badge">{{GAME.popularity| number}} Viewers</span>
           </div>
         </div>
 
       </div>
-      <!--</div>-->
 
   </body>
 </html>
