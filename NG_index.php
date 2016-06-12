@@ -21,7 +21,9 @@ and open the template in the editor.
     <!--END to delete-->
 
     <!--custom pages-->
-    <script src="js/twitchAPI.js" type="text/javascript"></script>
+<!--    <script src="js/twitchAPI.js" type="text/javascript"></script>-->
+    <script src="angular/NG_twitchAPI.js" type="text/javascript"></script>
+    <script src="angular/NG_app.js" type="text/javascript"></script>
     <link href="css/twitchAPI.css" rel="stylesheet" type="text/css"/>
 
     <!--END custom pages-->
@@ -30,13 +32,27 @@ and open the template in the editor.
   <body>
     <div class="container-fluid">
       <div class="text-center headerContainer">
-        <h1 class="text-center"> Twitch.tv API test</h1>
+        <h1 class="text-center"> Twitch.tv API Viewer</h1>
       </div>
       <!--<div class="container">-->
-      <div id="displayer">
+      <div id="displayer" ng-app="twitchApp" ng-controller="firstCtrl">
+        <div class="row">
+          <!--<div class="gameBrowserDiv text-center col-xs-12 col-sm-6 col-md-3">-->
+          <div class="gameBrowserDiv text-center col-xs-4 col-sm-3 col-md-2 " ng-click="getGamesStreams(gameName, 25)">
+            <!--<a href="' + 'https://api.twitch.tv/kraken/streams?game=' + gameName + '">-->
+              <!--<img src="box.large" class="img-responsive" >-->
+              <!--<img src="' + box.medium + '" class="img-responsive" >-->
+            <img src="' + box.medium + '" class="" >
+            <!--<img src="' + logo.large + '">-->
+            <h4 class="text-center gameTitle">' + gameName + '</h4>
+            <!--<h6 class="text-center viewerNumber">' + viewers + '</h6>-->
+            <span class="badge">' + viewers + ' Viewers' + '</span>
+            <!--</a>-->
+          </div>
+        </div>
 
       </div>
-    </div>
+      <!--</div>-->
 
   </body>
 </html>
