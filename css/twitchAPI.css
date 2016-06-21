@@ -7,9 +7,13 @@ and open the template in the editor.
     Created on : 30-mai-2016, 14:49:32
     Author     : queni
 */
+/*$backgroundColor: rgba(200,0,200,0.6);
+$backgroundColorDark: rgba(200,0,200,0.8);*/
 html {
   /*background-color: purple;*/
-  background-color: rgba(200, 0, 200, 0.6); }
+  /*background-color: $backgroundColor;*/
+  background-color: #960096;
+  /*padding:0 5px;*/ }
 
 body {
   background-color: transparent;
@@ -22,6 +26,12 @@ body {
     color: inherit;
     text-decoration: none; }
 
+#displayer {
+  background-color: #c800c8;
+  padding: 0 15px;
+  /*padding:20px;*/
+  /*padding:20px !important;*/ }
+
 .media-left img {
   height: 150px; }
 
@@ -29,18 +39,37 @@ img.subMedia {
   height: 60px;
   /*padding: 10px 10px 0 0;*/ }
 
+.media:first-child {
+  margin-top: 15px !important; }
+
 .gameBrowserDiv {
   /*margin-bottom: 10px;*/
   margin-bottom: 20px; }
 
 div.channelBrowserDiv {
   /*margin-bottom: 10px;*/
+  /*    margin: 10px;
+      padding: 10px;*/
   /*height:400px important;*/
-  height: 400px;
-  /*height:400px !important;*/ }
+  /*height:400px;*/
+  /*height:400px !important;*/
+  /*background-color:$backgroundColorDark;*/ }
 
-.gameBrowserDiv, .channelBrowserDiv {
-  cursor: pointer !important; }
+.gameBrowserDiv, .channelBrowserDiv, .streamBrowserDiv, .playerBrowserDiv {
+  /*cursor: pointer !important;*/
+  background-color: #960096;
+  margin: 10px 0;
+  padding: 10px; }
+
+.playerBrowserDiv {
+  /*cursor: pointer !important;*/
+  background-color: #960096;
+  margin: 10px 0;
+  padding: 40px; }
+
+#twitchPlayerDiv iframe {
+  width: 100%;
+  height: 600px; }
 
 .gameTitle {
   /*height: 50px;*/
@@ -55,12 +84,12 @@ h4.media-heading {
   overflow: hidden; }
 
 .badge {
-  color: rgba(200, 0, 200, 0.6);
+  color: #c800c8;
   background-color: white; }
 
 h1 {
   background-color: white;
-  color: rgba(200, 0, 200, 0.6);
+  color: #c800c8;
   margin-bottom: 50px;
   display: inline-block;
   /*margin: auto;*/
@@ -71,5 +100,24 @@ h1 {
 
 form.form-inline {
   margin-bottom: 20px; }
+
+.pagination li a {
+  /*color: #960096 !important;*/
+  color: #960096;
+  border: none; }
+  .pagination li a:hover, .pagination li a:focus {
+    /*color: #960096 !important;*/
+    color: #960096;
+    background-color: white; }
+.pagination li.active a {
+  /*color: #960096 !important;*/
+  background-color: #c800c8;
+  color: white; }
+  .pagination li.active a:hover, .pagination li.active a:focus {
+    background-color: #c800c8;
+    color: white; }
+
+.clickable {
+  cursor: pointer; }
 
 /*# sourceMappingURL=twitchAPI.css.map */

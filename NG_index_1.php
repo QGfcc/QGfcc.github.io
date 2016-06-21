@@ -17,7 +17,7 @@ and open the template in the editor.
 
     <script src= "http://player.twitch.tv/js/embed/v1.js"></script>
 
-    <title></title>
+    <title>Twitch Viewer</title>
 
     <!--to delete-->
     <!--<script src="js/autoReload.js" type="text/javascript"></script>-->
@@ -36,7 +36,7 @@ and open the template in the editor.
   <body>
     <div class="container-fluid"  ng-app="twitchApp" ng-controller="mainCtrl">
       <div class="text-center headerContainer">
-        <h1 class="text-center"> Twitch.tv API ViewerRRR</h1>
+        <h1 class="text-center"> Twitch.tv API Viewers</h1>
       </div>
       <!--<ul class="nav nav-pills text-center">-->
       <nav class="text-center">
@@ -73,11 +73,6 @@ and open the template in the editor.
       </nav>
       <form class="form-inline text-center" ng-show="curTab == 1">
         <input type="text" class="form-control" ng-model="curSearch" placeholder="Search Game here">
-        <label ng-show="curSearchType == 'games'">
-          <!--<input type="radio" class="form-control" ng-model="curSearchType" value="game" ng-selected="true">-->
-          <input type="checkbox" class="form-control" ng-model="searchLive">
-          Live
-        </label>
         <label>
           <!--<input type="radio" class="form-control" ng-model="curSearchType" value="game" ng-selected="true">-->
           <input type="radio" class="form-control" ng-model="curSearchType" value="games">
@@ -91,37 +86,67 @@ and open the template in the editor.
           <input type="radio" class="form-control" ng-model="curSearchType" value="streams">
           Stream
         </label>
+        <label ng-show="curSearchType == 'games'">
+          <input type="checkbox" class="form-control" ng-model="searchLive">
+          Live
+        </label>
       </form>
       <div id="displayer">
 
 
 
-        <div class="row" ng-controller="topGameCtrl" ng-show="curTab == 0" top-game>
+        <!--<div class="row" ng-controller="topGameCtrl" ng-show="curTab == 0" top-game>-->
+        <div ng-controller="topGameCtrl" ng-show="curTab == 0" >
+          <div class="row" top-game>
+          </div>
+          <button ng-click="loadNext()" style="background-color: black;">I WANT MORE !</button>
         </div>
 
 
 
         <!--<div class="row" ng-controller="searchGameCtrl" ng-show="curTab == 1" game-search>-->
-        <div ng-controller="searchGameCtrl" ng-show="curTab == 1" >
-          <div class="row"  ng-if="curSearchType == 'games'" game-search>
+        <div ng-controller="searchCtrl" ng-show="curTab == 1" >
+
+          <!--<div class="row" ng-controller="searchGameCtrl"  ng-if="curSearchType == 'games'" game-search>-->
+          <!--<div class="row" ng-controller="searchGameCtrl"  ng-show="curSearchType == 'games'" game-search>-->
+          <div ng-controller="searchGameCtrl"  ng-show="curSearchType == 'games'" >
+            <div class="row" game-search>
+            </div>
+            <!--<button ng-click="loadNext()" style="background-color: black;">I WANT MORE !</button>-->
           </div>
-          <div class="row" ng-if="curSearchType == 'channels'" channel-search >
-            <!--<h1>dqsfqsdf</h1>-->
+
+          <!--<div class="row" ng-controller="searchChannelCtrl" ng-if="curSearchType == 'channels'" channel-search >-->
+          <!--<div class="row" ng-controller="searchChannelCtrl" ng-show="curSearchType == 'channels'" channel-search >-->
+          <div  ng-controller="searchChannelCtrl" ng-show="curSearchType == 'channels'">
+            <div class="row"  channel-search >
+            </div>
+            <button ng-click="loadNext()" style="background-color: black;">I WANT MORE !</button>
+          </div>
+
+          <!--<div class="row" ng-controller="searchStreamCtrl" ng-if="curSearchType == 'streams'" stream-search >-->
+          <!--<div class="row" ng-controller="searchStreamCtrl" ng-show="curSearchType == 'streams'" stream-search >-->
+          <div ng-controller="searchStreamCtrl" ng-show="curSearchType == 'streams'">
+            <div class="row"  stream-search >
+            </div>
+            <button ng-click="loadNext()" style="background-color: black;">I WANT MORE !</button>
           </div>
         </div>
 
 
 
-        <div class="row" ng-controller="searchStreamCtrl" ng-show="curTab == 2" streams>
-          <!--        <div class="" ng-controller="searchStreamCtrl" ng-show="curTab == 2">
-                    <div class="row"  streams>
-                    </div>-->
+        <!--<div class="row" ng-controller="streamsCtrl" ng-show="curTab == 2" streams>-->
+        <div class="row" ng-controller="streamsCtrl" ng-show="curTab == 2">
+          <div class="text-center headerContainer">
+            <h1>
+              {{data.streams[0].game}}
+            </h1>
+          </div>
+          <div streams>
+          </div>
         </div>
 
         <!--<div class="row" ng-controller="streamCtrl" ng-show="curTab == 3" ng-if="curTab == 3">-->
-        <div class="row" ng-controller="streamCtrl" ng-show="curTab == 3" >
-          <h1> test </h1>
-          <div id="twitchPlayerDiv"></div>
+        <div class="row" ng-controller="streamCtrl" ng-show="curTab == 3" stream>
         </div>
       </div>
     </div>

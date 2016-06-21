@@ -1,5 +1,8 @@
-<div class="gameBrowserDiv text-center col-xs-4 col-sm-3 col-md-2 " ng-repeat="GAME in data.top" ng-click="updateStreams(GAME.game.name)" >
-  <img ng-src="{{GAME.game.box.medium}}" class="" >
-  <h4 class="text-center gameTitle">{{GAME.game.name}}</h4>
-  <span class="badge">{{GAME.viewers| number}} Viewers</span>
+<!--<div class="gameBrowserDiv text-center col-xs-4 col-sm-3 col-md-2 " ng-repeat="GAME in data.top" ng-click="updateStreams(GAME.game.name)" >-->
+<div class=" text-center col-xs-4 col-sm-3 col-md-2 clickable" ng-repeat="GAME in data.top" ng-click="updateStreams(GAME.game.name)" >
+  <div class="gameBrowserDiv">
+    <img ng-src="{{GAME.game.box.large}}" class="img-responsive" >
+    <h4 class="text-center gameTitle">{{GAME.game.name}}</h4>
+    <span class="badge">{{GAME.viewers| number}} Viewers</span>
+  </div>
 </div>

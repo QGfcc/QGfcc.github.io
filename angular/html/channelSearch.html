@@ -1,9 +1,13 @@
 <!--<div classgameBrowserDiv text-center col-xs-4 col-sm-3 col-md-2 " ng-repeat="CHANNEL in data.channels" ng-click="updateStream(GAME.name)">-->
-<div class="channelBrowserDiv  text-center col-xs-4 col-sm-3 col-md-2 " ng-repeat="CHANNEL in data.channels" ng-click="updateStream(CHANNEL.name)">
-  <!--<img ng-src="{{CHANNEL.profile_banner}}" class="" >-->
-  <img ng-src="{{CHANNEL.logo}}" class="img-responsive" >
-  <h4 class="text-center gameTitle">{{CHANNEL.name}}</h4>
-  <h4 class="text-center gameTitle">{{CHANNEL.status}}</h4>
-  <h4 class="text-center gameTitle">{{CHANNEL.game}}</h4>
-  <span class="badge">{{CHANNEL.followers| number}} Followers</span>
+<!--<div class="channelBrowserDiv  text-center col-xs-4 col-sm-3 col-md-2 " ng-repeat="CHANNEL in data.channels" ng-click="updateStream(CHANNEL.name)">-->
+<div class="  text-center col-xs-4 col-sm-3 col-md-2 clickable" ng-repeat="CHANNEL in data.channels" ng-click="updateStream(CHANNEL.name)">
+  <div class="channelBrowserDiv">
+    <!--<img ng-src="{{CHANNEL.profile_banner}}" class="" >-->
+    <!--<img ng-src="{{CHANNEL.logo}}" class="img-responsive" >-->
+    <img ng-src="{{CHANNEL.logo || 'http://static-cdn.jtvnw.net/jtv_user_pictures/test_channel-profile_image-94a42b3a13c31c02-300x300.jpeg' }}" class="img-responsive" >
+    <h4 class="text-center gameTitle">{{CHANNEL.name}}</h4>
+    <h4 class="text-center gameTitle">{{CHANNEL.status}}</h4>
+    <h4 class="text-center gameTitle">{{CHANNEL.game}}</h4>
+    <span class="badge">{{CHANNEL.followers| number}} Followers</span>
+  </div>
 </div>
