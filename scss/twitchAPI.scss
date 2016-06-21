@@ -43,6 +43,15 @@ img.subMedia {
     /*margin-bottom: 10px;*/
     margin-bottom: 20px;
 }
+div.channelBrowserDiv {
+    /*margin-bottom: 10px;*/
+    /*height:400px important;*/
+    height:400px;
+    /*height:400px !important;*/
+}
+.gameBrowserDiv, .channelBrowserDiv {
+  cursor: pointer !important;
+}
 .gameTitle {
   /*height: 50px;*/
   /*height: 2.5em;*/
@@ -69,4 +78,7 @@ h1 {
 }
 .headerContainer {
   margin:auto;
+}
+form.form-inline {
+  margin-bottom: 20px;
 }

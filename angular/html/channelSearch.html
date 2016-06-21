@@ -1,0 +1,9 @@
+<!--<div classgameBrowserDiv text-center col-xs-4 col-sm-3 col-md-2 " ng-repeat="CHANNEL in data.channels" ng-click="updateStream(GAME.name)">-->
+<div class="channelBrowserDiv  text-center col-xs-4 col-sm-3 col-md-2 " ng-repeat="CHANNEL in data.channels" ng-click="updateStream(CHANNEL.name)">
+  <!--<img ng-src="{{CHANNEL.profile_banner}}" class="" >-->
+  <img ng-src="{{CHANNEL.logo}}" class="img-responsive" >
+  <h4 class="text-center gameTitle">{{CHANNEL.name}}</h4>
+  <h4 class="text-center gameTitle">{{CHANNEL.status}}</h4>
+  <h4 class="text-center gameTitle">{{CHANNEL.game}}</h4>
+  <span class="badge">{{CHANNEL.followers| number}} Followers</span>
+</div>

@@ -26,7 +26,8 @@ and open the template in the editor.
     <!--custom pages-->
 <!--    <script src="js/twitchAPI.js" type="text/javascript"></script>-->
     <script src="angular/NG_twitchAPI.js" type="text/javascript"></script>
-    <script src="angular/NG_app.js" type="text/javascript"></script>
+    <!--<script src="angular/NG_app.js" type="text/javascript"></script>-->
+    <script src="angular/NG_app_1.js" type="text/javascript"></script>
     <link href="css/twitchAPI.css" rel="stylesheet" type="text/css"/>
 
     <!--END custom pages-->
@@ -72,22 +73,22 @@ and open the template in the editor.
       </nav>
       <form class="form-inline text-center" ng-show="curTab == 1">
         <input type="text" class="form-control" ng-model="curSearch" placeholder="Search Game here">
-        <label ng-show="curSearchType == 'game'">
+        <label ng-show="curSearchType == 'games'">
           <!--<input type="radio" class="form-control" ng-model="curSearchType" value="game" ng-selected="true">-->
           <input type="checkbox" class="form-control" ng-model="searchLive">
           Live
         </label>
         <label>
           <!--<input type="radio" class="form-control" ng-model="curSearchType" value="game" ng-selected="true">-->
-          <input type="radio" class="form-control" ng-model="curSearchType" value="game">
+          <input type="radio" class="form-control" ng-model="curSearchType" value="games">
           Game
         </label>
         <label>
-          <input type="radio" class="form-control" ng-model="curSearchType" value="channel">
+          <input type="radio" class="form-control" ng-model="curSearchType" value="channels">
           Channel
         </label>
         <label>
-          <input type="radio" class="form-control" ng-model="curSearchType" value="stream">
+          <input type="radio" class="form-control" ng-model="curSearchType" value="streams">
           Stream
         </label>
       </form>
@@ -95,71 +96,26 @@ and open the template in the editor.
 
 
 
-        <div class="row" ng-controller="topGameCtrl" ng-show="curTab == 0">
-          <div class="gameBrowserDiv text-center col-xs-4 col-sm-3 col-md-2 " ng-repeat="GAME in data.top" ng-click="updateStream(GAME.game.name)"
-               >
-            <img ng-src="{{GAME.game.box.medium}}" class="" >
-            <h4 class="text-center gameTitle">{{GAME.game.name}}</h4>
-            <span class="badge">{{GAME.viewers| number}} Viewers</span>
+        <div class="row" ng-controller="topGameCtrl" ng-show="curTab == 0" top-game>
+        </div>
+
+
+
+        <!--<div class="row" ng-controller="searchGameCtrl" ng-show="curTab == 1" game-search>-->
+        <div ng-controller="searchGameCtrl" ng-show="curTab == 1" >
+          <div class="row"  ng-if="curSearchType == 'games'" game-search>
+          </div>
+          <div class="row" ng-if="curSearchType == 'channels'" channel-search >
+            <!--<h1>dqsfqsdf</h1>-->
           </div>
         </div>
 
 
 
-        <div class="row" ng-controller="searchGameCtrl" ng-show="curTab == 1">
-          <div class="gameBrowserDiv text-center col-xs-4 col-sm-3 col-md-2 " ng-repeat="GAME in data.games" ng-click="updateStream(GAME.name)"
-               >
-            <img ng-src="{{GAME.box.medium}}" class="" >
-            <h4 class="text-center gameTitle">{{GAME.name}}</h4>
-            <span class="badge">{{GAME.popularity| number}} Viewers</span>
-          </div>
-        </div>
-
-
-
-        <div class="row" ng-controller="searchStreamCtrl" ng-show="curTab == 2">
-
-          <div class="text-center headerContainer">
-            <h1>
-              {{data.streams[0].game}}
-            </h1>
-          </div>
-          <ul class="media-list">
-            <div class="media col-xs-12 col-sm-12 col-md-6" ng-repeat="stream in data.streams">
-              <div class="media-left media-middle">
-                <a href="" ng-href="{{stream.channel.url}}">
-                  <img class="media-object" ng-src="{{stream.preview.large}}">
-                </a>
-              </div>
-              <div class="media-body">
-                <a href="" ng-href="{{stream.channel.url}}">
-                  <h4 class="media-heading">
-                    <a href="" ng-href="{{stream.channel.url}}">
-                      {{stream.channel.status}}
-                    </a>
-                  </h4>
-                </a>
-                <span class="badge">{{stream.viewers| number}} Viewers</span>
-                <div class="media">
-                  <div class="media-left media-middle">
-                    <a href="" ng-href="{{stream.channel.url + '/profile'}}">
-                      <img class="media-object subMedia" ng-src="{{stream.channel.logo}}">
-                    </a>
-                  </div>
-                  <div class="media-body">
-                    <h5 class="media-heading">
-                      <a href="" ng-href="{{stream.channel.url + '/profile'}}">
-                        {{stream.channel.display_name}}
-                      </a>
-                    </h5>
-                    <span class="badge">{{stream.channel.views| number}} Views</span>
-                    <br>
-                    <span class="badge">{{stream.channel.followers| number}} Followers</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </ul>
+        <div class="row" ng-controller="searchStreamCtrl" ng-show="curTab == 2" streams>
+          <!--        <div class="" ng-controller="searchStreamCtrl" ng-show="curTab == 2">
+                    <div class="row"  streams>
+                    </div>-->
         </div>
 
         <!--<div class="row" ng-controller="streamCtrl" ng-show="curTab == 3" ng-if="curTab == 3">-->

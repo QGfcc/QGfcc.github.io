@@ -1,0 +1,6 @@
+<div class="gameBrowserDiv text-center col-xs-4 col-sm-3 col-md-2 " ng-repeat="GAME in data.games" ng-click="updateStreams(GAME.name)"
+     >
+  <img ng-src="{{GAME.box.medium}}" class="" >
+  <h4 class="text-center gameTitle">{{GAME.name}}</h4>
+  <span class="badge">{{GAME.popularity| number}} Viewers</span>
+</div>

@@ -1,0 +1,41 @@
+<div class="text-center headerContainer">
+  <h1>
+    {{data.streams[0].game}}
+  </h1>
+</div>
+<ul class="media-list">
+  <div class="media col-xs-12 col-sm-12 col-md-6" ng-repeat="stream in data.streams">
+    <div class="media-left media-middle">
+      <a href="" ng-href="{{stream.channel.url}}">
+        <img class="media-object" ng-src="{{stream.preview.large}}">
+      </a>
+    </div>
+    <div class="media-body">
+      <a href="" ng-href="{{stream.channel.url}}">
+        <h4 class="media-heading">
+          <a href="" ng-href="{{stream.channel.url}}">
+            {{stream.channel.status}}
+          </a>
+        </h4>
+      </a>
+      <span class="badge">{{stream.viewers| number}} Viewers</span>
+      <div class="media">
+        <div class="media-left media-middle">
+          <a href="" ng-href="{{stream.channel.url + '/profile'}}">
+            <img class="media-object subMedia" ng-src="{{stream.channel.logo}}">
+          </a>
+        </div>
+        <div class="media-body">
+          <h5 class="media-heading">
+            <a href="" ng-href="{{stream.channel.url + '/profile'}}">
+              {{stream.channel.display_name}}
+            </a>
+          </h5>
+          <span class="badge">{{stream.channel.views| number}} Views</span>
+          <br>
+          <span class="badge">{{stream.channel.followers| number}} Followers</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ul>
