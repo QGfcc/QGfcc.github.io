@@ -36,7 +36,7 @@ and open the template in the editor.
   <body>
     <div class="container-fluid"  ng-app="twitchApp" ng-controller="mainCtrl">
       <div class="text-center headerContainer">
-        <h1 class="text-center"> Twitch.tv API Viewer</h1>
+        <h1 class="text-center"> Twitch.tv API ViewerRRR</h1>
       </div>
       <!--<ul class="nav nav-pills text-center">-->
       <nav class="text-center">
