@@ -317,6 +317,14 @@ app.directive("streamSearch", function () {
     templateUrl: "angular/html/streams.html"
   };
 });
+app.directive("moreButton", function () {
+  return {
+//    restrict: "A",
+    restrict: "E",
+//    templateUrl: "angular/html/streamSearch.html"
+    templateUrl: "angular/html/moreButton.html"
+  };
+});
 app.controller("streamsCtrl", ['$scope', '$http', function ($scope, $http) {
     //    var nextStream = "doom";
     $scope.goToStream = function (query) {

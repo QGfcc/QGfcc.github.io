@@ -120,4 +120,22 @@ form.form-inline {
 .clickable {
   cursor: pointer; }
 
+#moreButton {
+  width: 100%;
+  margin: 10px 0;
+  font-size: 4em;
+  background-color: #960096;
+  /*background-color: $backgroundColor;*/
+  color: #c800c8;
+  /*color: $backgroundColorDark;*/
+  border: 1px solid white;
+  border: none; }
+  #moreButton:hover, #moreButton:focus {
+    /*background-color: $backgroundColor;*/
+    color: white;
+    border: none; }
+
+ul {
+  margin-bottom: 0px; }
+
 /*# sourceMappingURL=twitchAPI.css.map */

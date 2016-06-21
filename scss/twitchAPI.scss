@@ -139,3 +139,22 @@ form.form-inline {
 .clickable {
   cursor: pointer;
 }
+#moreButton {
+  width:100%;
+  margin: 10px 0;
+  font-size: 4em;
+      background-color: $backgroundColorDark;
+      /*background-color: $backgroundColor;*/
+      color: $backgroundColor;
+      /*color: $backgroundColorDark;*/
+      border: 1px solid $fontColor ;
+      border: none ;
+      &:hover, &:focus {
+        /*background-color: $backgroundColor;*/
+        color: $fontColor;
+        border: none;
+      }
+}
+ul {
+  margin-bottom: 0px;
+}

@@ -99,7 +99,8 @@ and open the template in the editor.
         <div ng-controller="topGameCtrl" ng-show="curTab == 0" >
           <div class="row" top-game>
           </div>
-          <button ng-click="loadNext()" style="background-color: black;">I WANT MORE !</button>
+          <!--<button ng-click="loadNext()" style="background-color: black;">I WANT MORE !</button>-->
+          <more-button></more-button>
         </div>
 
 
@@ -120,7 +121,8 @@ and open the template in the editor.
           <div  ng-controller="searchChannelCtrl" ng-show="curSearchType == 'channels'">
             <div class="row"  channel-search >
             </div>
-            <button ng-click="loadNext()" style="background-color: black;">I WANT MORE !</button>
+            <!--<button ng-click="loadNext()" style="background-color: black;">I WANT MORE !</button>-->
+            <more-button></more-button>
           </div>
 
           <!--<div class="row" ng-controller="searchStreamCtrl" ng-if="curSearchType == 'streams'" stream-search >-->
@@ -128,7 +130,8 @@ and open the template in the editor.
           <div ng-controller="searchStreamCtrl" ng-show="curSearchType == 'streams'">
             <div class="row"  stream-search >
             </div>
-            <button ng-click="loadNext()" style="background-color: black;">I WANT MORE !</button>
+            <!--<button ng-click="loadNext()" style="background-color: black;">I WANT MORE !</button>-->
+            <more-button></more-button>
           </div>
         </div>
 
