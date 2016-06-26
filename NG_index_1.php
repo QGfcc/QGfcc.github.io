@@ -19,15 +19,11 @@ and open the template in the editor.
 
     <title>Twitch Viewer</title>
 
-    <!--to delete-->
-    <!--<script src="js/autoReload.js" type="text/javascript"></script>-->
-    <!--END to delete-->
-
     <!--custom pages-->
 <!--    <script src="js/twitchAPI.js" type="text/javascript"></script>-->
-    <script src="angular/NG_twitchAPI.js" type="text/javascript"></script>
+    <!--<script src="angular/NG_twitchAPI.js" type="text/javascript"></script>-->
     <!--<script src="angular/NG_app.js" type="text/javascript"></script>-->
-    <script src="angular/NG_app_1.js" type="text/javascript"></script>
+    <script src="js/NG_app_1.js" type="text/javascript"></script>
     <link href="css/twitchAPI.css" rel="stylesheet" type="text/css"/>
 
     <!--END custom pages-->
@@ -146,11 +142,13 @@ and open the template in the editor.
           </div>
           <div streams>
           </div>
+          <more-button></more-button>
         </div>
 
         <!--<div class="row" ng-controller="streamCtrl" ng-show="curTab == 3" ng-if="curTab == 3">-->
         <div class="row" ng-controller="streamCtrl" ng-show="curTab == 3" stream>
         </div>
+
       </div>
     </div>
   </body>

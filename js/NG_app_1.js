@@ -9,6 +9,8 @@ app.controller("mainCtrl", function ($scope) {
   $scope.searchLive = true;
   $scope.curStream = "";
 //  $scope.curStream = "joshog";
+  $scope.curChat = "https://api.twitch.tv/kraken/chat/joshog";
+  $scope.isPlayerPaused = true;
   $scope.goToTab = function (index) {
     if (index == 2 && $scope.curGame == "" || index == 3 && $scope.curStream == "") {
       return;
@@ -327,6 +329,7 @@ app.directive("moreButton", function () {
 });
 app.controller("streamsCtrl", ['$scope', '$http', function ($scope, $http) {
     //    var nextStream = "doom";
+    $scope.nextPageUrl = "";
     $scope.goToStream = function (query) {
       $http.jsonp(
           "https://api.twitch.tv/kraken/" +
@@ -340,6 +343,19 @@ app.controller("streamsCtrl", ['$scope', '$http', function ($scope, $http) {
               function (response) {
                 $scope.data = response.data;
                 $scope.goToTab(2);
+                $scope.nextPageUrl = response.data["_links"].next + "&callback=JSON_CALLBACK";
+              },
+              function (response) {
+
+              }
+          );
+    };
+    $scope.loadNext = function () {
+      $http.jsonp($scope.nextPageUrl)
+          .then(
+              function (response) {
+                $scope.data.streams = $scope.data.streams.concat(response.data.streams);
+                $scope.nextPageUrl = response.data["_links"].next + "&callback=JSON_CALLBACK";
               },
               function (response) {
 
@@ -371,6 +387,14 @@ app.controller("streamCtrl", ['$scope', '$http', function ($scope, $http) {
         //video: "{VIDEO_ID}"
       };
       $scope.player = new Twitch.Player("twitchPlayerDiv", options);
+      $scope.player.addEventListener("pause", function () {
+        $scope.isPlayerPaused = true;
+        alert($scope.isPlayerPaused);
+      });
+      $scope.player.addEventListener("playing", function () {
+        $scope.isPlayerPaused = false;
+//        alert($scope.isPlayerPaused);
+      });
 //      $scope.playerInit = function () {
 //        alert("test");
 //        $scope.player.setVolume(0.5);
@@ -391,8 +415,12 @@ app.controller("streamCtrl", ['$scope', '$http', function ($scope, $http) {
         //        $scope.swapStream($scope.curStream);
       }
       else if ($scope.curStream != "") {
-        $scope.player.pause();
+//        $scope.player.pause();
       }
+    });
+    $scope.$watch('isPlayerPaused', function () {
+//      alert("test" + $scope.isPlayerPaused);
+
     });
   }]);
 app.directive("stream", function () {
